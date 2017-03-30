@@ -17,7 +17,12 @@ function addItem()
   if (isNaN(newItem)) {
     alert("Enter price as a number");
   } else {
-
+    newItem = Number(document.getElementById("price").value);
+    runningTotal += newItem;
+    var dollars = asCurrency(runningTotal);
+    document.getElementById('subtotal').innerHTML = dollars;
+    document.getElementById('price').value = "";
+    setCookie("preTax", runningTotal, 1);
   }
 
 }
